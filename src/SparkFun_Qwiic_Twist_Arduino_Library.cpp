@@ -149,7 +149,7 @@ uint16_t TWIST::timeSinceLastPress(boolean clearValue)
 //Sets the color of the encoder LEDs
 boolean TWIST::setColor(uint8_t red, uint8_t green, uint8_t blue)
 {
-  return(writeRegister24(TWIST_RED, (uint32_t)red << 16 | green << 8 | blue));
+  return(writeRegister24(TWIST_RED, (uint32_t)red << 16 | (uint32_t)green << 8 | blue));
 }
 
 //Sets the color of a specific color
@@ -321,9 +321,9 @@ boolean TWIST::writeRegister24(uint8_t addr, uint32_t val)
 {
   _i2cPort->beginTransmission((uint8_t)_deviceAddress);
   _i2cPort->write(addr);
-  _i2cPort->write(val & 0xFF); //LSB
-  _i2cPort->write(val >> 8); //MidMSB
   _i2cPort->write(val >> 16); //MSB
+  _i2cPort->write(val >> 8); //MidMSB
+  _i2cPort->write(val & 0xFF); //LSB
   if (_i2cPort->endTransmission() != 0)
   {
     //Serial.println("No ack!");

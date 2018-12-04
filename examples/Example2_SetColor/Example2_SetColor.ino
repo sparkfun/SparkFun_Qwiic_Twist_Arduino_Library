@@ -35,7 +35,7 @@ void setup() {
 
   Wire.setClock(400000); //Optional: After Twist begin(), increase I2C speed to max, 400kHz
 
-  //Set the knob color to purple
+  //Set the knob color to pink
   twist.setColor(100, 10, 50); //Set the Red, Green, and Blue LED brightnesses
 
   //Set the know color to white
