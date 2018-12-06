@@ -1,17 +1,17 @@
-SparkFun BNO080 IMU Library
+SparkFun Qwiic Twist Arduino Library
 ===========================================================
 
-![SparkFun Inertial Measurement Unit - BNO080](https://cdn.sparkfun.com//assets/parts/1/2/8/9/1/14686-Qwiic_VR_IMU_BN0080-01.jpg)
+![SparkFun Qwiic Twist](https://cdn.sparkfun.com//assets/parts/1/2/8/9/1/14686-Qwiic_VR_IMU_BN0080-01.jpg)
 
-[*SparkFun IMU BNO080 (SEN-14686)*](https://www.sparkfun.com/products/14686)
+[*SparkFun Qwiic Twist (DEV-15083)*](https://www.sparkfun.com/products/15083)
 
-The BNO080/BNO085 IMU has a combination triple axis accelerometer/gyro/magnetometer packaged with an ARM Cortex M0+ running powerful algorithms. This enables the BNO080 Inertial Measurement Unit (IMU) to produce accurate rotation vector headings with an error of 5 degrees or less. It's what we've been waiting for: all the sensor data is combined into meaningful, accurate IMU information.
+Sometimes you just need a volume knob. The Qwiic Twist is a digital RGB encoder. What does that mean? The Twist takes care of all the various interrupts, switches, PWM'ing of LEDs and presents all those features over an easy-to-use I<sup>2</sup>C interface. The Qwiic Twist was designed to get rid of the large mass of wires that are needed to implement an RGB encoder in a breadboard. Stop messing around with interrupt debugging and get back to your project!
 
-This IC was designed to be implemented in Android based cellular phones to handle all the computations necessary for virtual reality goggles using only your phone. The sensor is quite powerful but with power comes a complex interface. We've written an I<sup>2</sup>C based library that provides the rotation vector (the reading most folks want from an IMU) as well as raw acceleration, gyro, and magnetometer readings. The sensor is capable of communicating over SPI and UART as well!
+One rotation in the clockwise direction increases the overall count by 24 and -24 in the counter clockwise direction. The number of 'ticks' or steps the user has turned the knob are transmitted over I2C. Additionally, the red, green, and blue LEDs are all set via software commands and can be digitally mixed to achieve over 16 million colors. 
 
-In addition the BNO080 IMU provides a built-in step counter, tap detector, activity classifier (are you running, walking, or sitting still?), and a shake detector. We are duly impressed.
+We designed Qwiic Twist with an indent encoder which gives the user a great 'clicky' feel. Additionally, the encoder has a built in button so the user can select an GUI menu or element by pressing on the encoder.
 
-Library written by Nathan Seidle ([SparkFun](http://www.sparkfun.com)).
+The I2C address of Qwiic Twist is software configurable which means you can hookup over 100 on a single I2C bus!
 
 Repository Contents
 -------------------
@@ -25,7 +25,7 @@ Documentation
 --------------
 
 * **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.
-* **[Product Repository](https://github.com/sparkfun/Qwiic_IMU_BNO080)** - Main repository (including hardware files)
+* **[Product Repository](https://github.com/sparkfun/Qwiic_Twist)** - Main repository (including hardware files)
 
 License Information
 -------------------
