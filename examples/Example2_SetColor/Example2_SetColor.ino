@@ -6,7 +6,7 @@
   License: MIT. See license file for more information but you can
   basically do whatever you want with this code.
 
-  This example shows how to set the knob color to purple. This value is stored in the 
+  This example shows how to set the knob color to pink. This value is stored in the 
   Qwiic Twist and will be loaded after each power-on.
 
   Also - the max I2C datarate for Qwiic Twist is 400kHz
