@@ -1,7 +1,7 @@
 SparkFun Qwiic Twist Arduino Library
 ===========================================================
 
-![SparkFun Qwiic Twist](https://cdn.sparkfun.com//assets/parts/1/2/8/9/1/14686-Qwiic_VR_IMU_BN0080-01.jpg)
+![SparkFun Qwiic Twist](https://cdn.sparkfun.com//assets/parts/1/3/4/3/3/Qwiic_Twist_Hookup_Guide.jpg)
 
 [*SparkFun Qwiic Twist (DEV-15083)*](https://www.sparkfun.com/products/15083)
 
