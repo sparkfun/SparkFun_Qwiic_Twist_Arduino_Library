@@ -63,7 +63,7 @@ void TWIST::changeAddress(uint8_t newAddress)
   _deviceAddress = newAddress;
 }
 
-//Clears the moved and clicked bits
+//Clears the moved, clicked, and pressed bits
 void TWIST::clearInterrupts()
 {
   writeRegister(TWIST_STATUS, 0); //Clear the moved, clicked, and pressed bits
@@ -96,7 +96,12 @@ int16_t TWIST::getDiff(boolean clearValue)
 //Returns true if button is currently being pressed
 boolean TWIST::isPressed()
 {
-  return ( readRegister(TWIST_STATUS) & (1<<statusButtonPressedBit) );
+  byte status = readRegister(TWIST_STATUS);
+  boolean pressed = status & (1<<statusButtonPressedBit);
+
+  writeRegister(TWIST_STATUS, status & ~(1<<statusButtonPressedBit)); //We've read this status bit, now clear it
+
+  return(pressed);
 }
 
 //Returns true if a click event has occurred
