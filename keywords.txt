@@ -42,6 +42,9 @@ setIntTimeout	KEYWORD2
 getVersion	KEYWORD2
 changeAddress	KEYWORD2
 
+setLimit	KEYWORD2
+getLimit	KEYWORD2
+
 #######################################
 # Constants (LITERAL1)
 #######################################
