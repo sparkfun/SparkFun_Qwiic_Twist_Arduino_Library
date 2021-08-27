@@ -14,20 +14,22 @@
   Hardware Connections:
   Plug a Qwiic cable into the Qwiic Twist and a BlackBoard
   If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
-  Open the serial monitor at 9600 baud to see the output
+  Open the serial monitor at 115200 baud to see the output
 */
 
 #include "SparkFun_Qwiic_Twist_Arduino_Library.h" //Click here to get the library: http://librarymanager/All#SparkFun_Twist
-TWIST twist; //Create instance of this object
+TWIST twist;                                      //Create instance of this object
 
-void setup() {
-  Serial.begin(9600);
+void setup()
+{
+  Serial.begin(115200);
   Serial.println("Qwiic Twist Example");
 
   if (twist.begin() == false)
   {
     Serial.println("Twist does not appear to be connected. Please check wiring. Freezing...");
-    while (1);
+    while (1)
+      ;
   }
 
   int currentVersion = twist.getVersion();
@@ -37,6 +39,6 @@ void setup() {
   Serial.println(currentVersion >> 8);
 }
 
-void loop() {
-
+void loop()
+{
 }

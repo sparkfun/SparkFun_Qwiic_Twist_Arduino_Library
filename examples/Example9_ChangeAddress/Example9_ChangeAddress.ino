@@ -16,23 +16,26 @@
   Hardware Connections:
   Plug a Qwiic cable into the Qwiic Twist and a BlackBoard
   If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
-  Open the serial monitor at 9600 baud to see the output
+  Open the serial monitor at 115200 baud to see the output
 */
 
 #include "SparkFun_Qwiic_Twist_Arduino_Library.h" //Click here to get the library: http://librarymanager/All#SparkFun_Twist
-TWIST twist; //Create instance of this object
+TWIST twist;                                      //Create instance of this object
 
-void setup() {
-  Serial.begin(9600);
+void setup()
+{
+  Serial.begin(115200);
   Serial.println("Qwiic Twist Example");
 
   byte oldAddress = 0x3F; //The current address of the Twist you want to change. 0x3F is default.
   byte newAddress = 0x45; //Address you want to change to. Valid is 0x08 to 0x77.
 
-  while (Serial.available()) Serial.read(); //Trash any incoming chars
+  while (Serial.available())
+    Serial.read(); //Trash any incoming chars
   Serial.print("Press a key to change address to 0x");
   Serial.println(newAddress, HEX);
-  while (Serial.available() == false) ; //Wait for user to send character
+  while (Serial.available() == false)
+    ; //Wait for user to send character
 
   //Begin communication with Twist at current address
   if (twist.begin(Wire, oldAddress) == true)
@@ -54,7 +57,8 @@ void setup() {
       Serial.print(newAddress, HEX);
       Serial.println(") to use this Qwiic Twist");
       Serial.println("Freezing...");
-      while (1);
+      while (1)
+        ;
     }
   }
 
@@ -64,18 +68,19 @@ void setup() {
   Wire.begin();
 }
 
-void loop() {
-  
+void loop()
+{
+
   byte address;
   int nDevices;
 
   Serial.println("Scanning...");
 
   nDevices = 0;
-  for (address = 1; address < 127; address++ )
+  for (address = 1; address < 127; address++)
   {
     Wire.beginTransmission(address);
-     byte error = Wire.endTransmission();
+    byte error = Wire.endTransmission();
 
     if (error == 0)
     {
@@ -101,5 +106,5 @@ void loop() {
   else
     Serial.println("done\n");
 
-  delay(5000);           // wait 5 seconds for next scan
+  delay(5000); // wait 5 seconds for next scan
 }

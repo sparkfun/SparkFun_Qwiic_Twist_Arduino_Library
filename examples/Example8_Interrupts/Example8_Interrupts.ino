@@ -20,16 +20,17 @@
   Hardware Connections:
   Plug a Qwiic cable into the Qwiic Twist and a BlackBoard
   If you don't have a platform with a Qwiic connection use the SparkFun Qwiic Breadboard Jumper (https://www.sparkfun.com/products/14425)
-  Open the serial monitor at 9600 baud to see the output
+  Open the serial monitor at 115200 baud to see the output
 */
 
 #include "SparkFun_Qwiic_Twist_Arduino_Library.h" //Click here to get the library: http://librarymanager/All#SparkFun_Twist
-TWIST twist; //Create instance of this object
+TWIST twist;                                      //Create instance of this object
 
 const byte twistInterruptPin = 4; //Can be any GPIO
 
-void setup() {
-  Serial.begin(9600);
+void setup()
+{
+  Serial.begin(115200);
   Serial.println("Qwiic Twist Example");
 
   pinMode(twistInterruptPin, INPUT_PULLUP);
@@ -37,30 +38,32 @@ void setup() {
   if (twist.begin() == false)
   {
     Serial.println("Twist does not appear to be connected. Please check wiring. Freezing...");
-    while (1);
+    while (1)
+      ;
   }
 
   //Optional: You can modify the time between when the user has stopped turning and when interrupt is raised
   //twist.setIntTimeout(500); //Set twist timeout to 500ms before interrupt assertion
 }
 
-void loop() {
+void loop()
+{
   if (digitalRead(twistInterruptPin) == LOW)
   {
     Serial.print("Interrupt: ");
-    
-    if(twist.isMoved())
+
+    if (twist.isMoved())
     {
       Serial.print("Count:");
       Serial.print(twist.getCount());
     }
 
-    if(twist.isPressed())
+    if (twist.isPressed())
     {
       Serial.print("Pressed");
     }
 
-    if(twist.isClicked())
+    if (twist.isClicked())
     {
       Serial.print("Clicked!");
     }
