@@ -211,12 +211,12 @@ boolean TWIST::connectColor(int16_t red, int16_t green, int16_t blue)
 {
   _i2cPort->beginTransmission((uint8_t)_deviceAddress);
   _i2cPort->write(TWIST_CONNECT_RED); //Command
-  _i2cPort->write(red >> 8);          //MSB
-  _i2cPort->write(red & 0xFF);        //LSB
-  _i2cPort->write(green >> 8);        //MSB
-  _i2cPort->write(green & 0xFF);      //LSB
-  _i2cPort->write(blue >> 8);         //MSB
-  _i2cPort->write(blue & 0xFF);       //LSB
+  _i2cPort->write((uint8_t)(red >> 8));          //MSB
+  _i2cPort->write((uint8_t)(red & 0xFF));        //LSB
+  _i2cPort->write((uint8_t)(green >> 8));        //MSB
+  _i2cPort->write((uint8_t)(green & 0xFF));      //LSB
+  _i2cPort->write((uint8_t)(blue >> 8));         //MSB
+  _i2cPort->write((uint8_t)(blue & 0xFF));       //LSB
   if (_i2cPort->endTransmission() != 0)
     return (false); //Sensor did not ACK
   return (true);
@@ -341,9 +341,9 @@ boolean TWIST::writeRegister24(uint8_t addr, uint32_t val)
 {
   _i2cPort->beginTransmission((uint8_t)_deviceAddress);
   _i2cPort->write(addr);
-  _i2cPort->write(val >> 16);  //MSB
-  _i2cPort->write(val >> 8);   //MidMSB
-  _i2cPort->write(val & 0xFF); //LSB
+  _i2cPort->write((uint8_t)(val >> 16));  //MSB
+  _i2cPort->write((uint8_t)(val >> 8));   //MidMSB
+  _i2cPort->write((uint8_t)(val & 0xFF)); //LSB
   if (_i2cPort->endTransmission() != 0)
   {
     //Serial.println("No ack!");
